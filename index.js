@@ -4,12 +4,14 @@ const { exec } = require('child_process');
 
 try {
   const token = core.getInput('github-oauth-token');
-  const command = `curl -s -H "Accept: application/vnd.github.groot-preview+json" -H "Authorization: token ${token}" https://api.github.com/repos/${ process.env.GITHUB_REPOSITORY }/commits/${ process.env.GITHUB_SHA }/pulls | jq -r '.[].number`;
-  exec(command, (err, stdout, stderr) => {
+  const { GITHUB_REPOSITORY, GITHUB_SHA } = process.env;
+  const command = `curl -s -H "Accept: application/vnd.github.groot-preview+json" -H "Authorization: token ${token}" https://api.github.com/repos/${ GITHUB_REPOSITORY }/commits/${ GITHUB_SHA }/pulls | jq -r '.[].number'`;
+  exec(command, (err, prNumber, stderr) => {
     if (err) {
       throw err;
     }
-    core.setOutput("url", stdout);
+    const url = prNumber && `https://github.com/${ GITHUB_REPOSITORY }/pull/${ prNumber }`;
+    core.setOutput("url", url);
   });
 } catch (error) {
   core.setFailed(error.message);
