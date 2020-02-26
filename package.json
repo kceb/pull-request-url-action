@@ -1,0 +1,32 @@
+{
+  "name": "pull-request-url-action",
+  "version": "1.0.0",
+  "description": "Github action used to get the URL of the pull-request",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kceb/pull-request-url-action.git"
+  },
+  "keywords": [
+    "pull-request",
+    "pull-request-url",
+    "url",
+    "pr",
+    "pr-url",
+    "action",
+    "github-actions"
+  ],
+  "author": "Kevin Ceballos",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kceb/pull-request-url-action/issues"
+  },
+  "homepage": "https://github.com/kceb/pull-request-url-action#readme",
+  "dependencies": {
+    "@actions/core": "^1.2.2",
+    "@actions/github": "^2.1.1"
+  }
+}

@@ -1,0 +1,15 @@
+name: 'Pull Request URL'
+description: 'Get the pull request URL'
+inputs:
+  github-oauth-token:
+    description: 'OAuth token used to interact with the GitHub API. Must have commit status read permissions'
+    required: true
+outputs:
+  url:
+    description: 'The url of the PR'
+runs:
+  using: 'node12'
+  main: 'index.js'
+branding:
+  icon: 'git-pull-request'
+  color: 'blue'
