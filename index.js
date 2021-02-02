@@ -10,7 +10,7 @@ try {
     if (err) {
       throw err;
     }
-    const url = prNumber && `https://github.com/${ GITHUB_REPOSITORY }/pull/${ prNumber }`;
+    const url = prNumber && `https://github.com/${ GITHUB_REPOSITORY }/pull/${ prNumber.trim() }`;
     core.setOutput("url", url);
   });
 } catch (error) {
