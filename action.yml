@@ -3,6 +3,7 @@ description: 'Get the pull request URL'
 inputs:
   github-oauth-token:
     description: 'OAuth token used to interact with the GitHub API. Must have commit status read permissions'
+    default: ${{ github.token }}
     required: true
 outputs:
   url:
